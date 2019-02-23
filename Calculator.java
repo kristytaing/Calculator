@@ -3,9 +3,11 @@ package cse360assign2;
 public class Calculator {
 
 	private int total;
+	private String history;
 	
 	public Calculator () {
-		total = 0;  // not needed - included for clarity
+		total = 0; 
+		history = "0";
 	}
 	
 	/*
@@ -18,34 +20,37 @@ public class Calculator {
 	}
 	
 	/*
-	 * Adds the parameter to the total
+	 * Adds the parameter to the total. Also adds the calculation to the history.
 	 * 
 	 * @param value amount to be added to the total
 	 */
 	public void add (int value) {
 		total += value;
+		history += " + " + value;
 	}
 	
 	/*
-	 * Subtracts a value from the total
+	 * Subtracts a value from the total. Also adds the calculation to the history.
 	 * 
 	 * @param value amount to be added to the total
 	 */
 	public void subtract (int value) {
 		total -= value;
+		history += " - " + value;
 	}
 	
 	/*
-	 * Multiplies the total by the parameter
+	 * Multiplies the total by the parameter. Also adds the calculation to the history.
 	 * 
 	 * @param value amount to be added to the total
 	 */
 	public void multiply (int value) {
 		total *= value;
+		history += " * " + value;
 	}
 	
 	/*
-	 * Divides the total by the parameter
+	 * Divides the total by the parameter. Also adds the calculation to the history.
 	 * 
 	 * @param value amount to be added to the total
 	 */
@@ -54,14 +59,15 @@ public class Calculator {
 			total = 0;
 		}
 		total /= value;
+		history += " / " + value;
 	}
 	
 	/*
-	 * Returns a history of all actions as a string
+	 * Returns a history as a string of operations separated by a space.
 	 * 
 	 * @return a history of all actions 
 	 */
 	public String getHistory () {
-		return "";
+		return history;
 	}
 }
